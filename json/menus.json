@@ -1,0 +1,52 @@
+{
+	"menus": [
+		{
+			"id": 1, 
+			"src": "./img/cherries.jpg", 
+			"title": "Cherries, interrupted", 
+			"desc": "Lorem ipsum text praesent tincidunt ipsum lipsum. What else?"
+		},
+		{
+			"id": 2, 
+			"src": "./img/croissant.jpg", 
+			"title": "Le French", 
+			"desc": "Lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum."
+		},
+		{
+			"id": 3, 
+			"src": "./img/popsicle.jpg", 
+			"title": "All I Need Is a Popsicle", 
+			"desc": "Lorem ipsum text praesent tincidunt ipsum lipsum."
+		},
+		{
+			"id": 4, 
+			"src": "./img/salmon.jpg", 
+			"title": "Salmon For Your Skin", 
+			"desc": "Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum."
+		},
+		{
+			"id": 5, 
+			"src": "./img/sandwich.jpg", 
+			"title": "The Perfect Sandwich, A Real Classic", 
+			"desc": "Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum."
+		},
+		{
+			"id": 6, 
+			"src": "./img/steak.jpg", 
+			"title": "Let Me Tell You About This Steak", 
+			"desc": "Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum."
+		},
+		{
+			"id": 7, 
+			"src": "./img/wine.jpg", 
+			"title": "Once Again, Robust Wine and Vegetable Pasta", 
+			"desc": "Lorem ipsum text praesent tincidunt ipsum lipsum."
+		},
+		{
+			"id": 8, 
+			"src": "./img/sandwich.jpg", 
+			"title": "The Perfect Sandwich, A Real NYC Classic", 
+			"desc": "Lorem ipsum text praesent tincidunt ipsum lipsum."
+		}
+	]
+}
