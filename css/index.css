@@ -1,6 +1,7 @@
 /* Common */
 @import url('https://fonts.googleapis.com/css?family=Oswald:400,500&display=swap');
-html, body {font-size: 16px;}
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,700&display=swap');
+html, body {font-size: 16px; font-family: 'Noto Serif', serif;}
 .wrapper {width: 100%; max-width: 768px; margin: 0 auto; height: 100vh; border-left: 1px solid #eee; border-right: 1px solid #eee;}
 
 /* Header */
