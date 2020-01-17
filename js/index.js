@@ -53,7 +53,7 @@ function getDaily(id) {
 			units: "metric"	
 		},
 		success: resDaily,
-		error: resError
+		error: err
 	});
 }
 
@@ -66,7 +66,7 @@ function getDays(id) {
 			units: "metric"	
 		},
 		success: resDays,
-		error: resError
+		error: err
 	});
 }
 
@@ -76,10 +76,6 @@ function resDaily(res) {
 
 function resDays(res) {
 	console.log(res);
-}
-
-function resError(err) {
-	console.log(err);
 }
 
 
