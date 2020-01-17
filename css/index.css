@@ -9,7 +9,7 @@ html, body {font-size: 16px; font-family: 'Noto Serif', serif;}
 /* Header */
 .header {display: none;}
 .navi-wrap {display: flex; align-items: center; font-family: 'Oswald', sans-serif; font-size: 1.25rem;}
-.navi {flex: 33.3333% 0 0; padding: 1rem; text-align: center;}
+.navi {flex: 33.3333% 0 0; padding: 1rem; text-align: center; cursor: pointer;}
 .navi.active {border-bottom: 2px solid dodgerblue;}
 
 /* Main */

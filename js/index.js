@@ -66,13 +66,13 @@ function cityMaker(res) {
 /* 화면전환 */
 function stageChg(type) {
 	switch(type) {
-		case "H":
+		case 0:
 			$(".header").css("display", "none");
 			$(".home-wrap").css("display", "flex");
 			$(".daily-wrap").css("display", "none");
 			$(".days-wrap").css("display", "none");
 			break;
-		case "D":
+		case 1:
 			$(".navi").removeClass("active");
 			$(".navi").eq(1).addClass("active");
 			$(".header").css("display", "block");
@@ -80,7 +80,7 @@ function stageChg(type) {
 			$(".daily-wrap").css("display", "flex");
 			$(".days-wrap").css("display", "none");
 			break;
-		case "S":
+		case 2:
 			$(".navi").removeClass("active");
 			$(".navi").eq(2).addClass("active");
 			$(".header").css("display", "block");
@@ -98,7 +98,7 @@ function init() {
 		error: err,
 		success: cityMaker
 	});
-	stageChg('H');
+	stageChg(0);
 }
 
 function getDaily(id) {
@@ -131,6 +131,13 @@ function resDaily(res) {
 	console.log(res);
 	$(".d-city").html(res.name);
 	$(".d-time").html(	iso(new Date(res.dt*1000))	);
+	var src = 'http://openweathermap.org/img/wn/'+res.weather[0].icon+'@2x.png';
+	$(".d-icon").find("img").attr("src", src);
+	$(".d-main").html(res.weather[0].main);
+	$(".d-desc").html(res.weather[0].description);
+	$(".d-temp").html(res.main.temp + ' ℃');
+	$(".d-feel").html(res.main.feels_like + ' ℃');
+	$(".d-hum").html(res.main.humidity + "%");
 }
 
 function resDays(res) {
@@ -145,7 +152,12 @@ $("#city").change(function(){
 	var id = $(this).val();
 	getDaily(id);
 	getDays(id);
-	stageChg('D');
+	stageChg(1);
+});
+
+$(".navi").click(function(){
+	var n = $(this).index();
+	stageChg(n);
 });
 
 
