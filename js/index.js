@@ -14,7 +14,15 @@ $.ajax({
 */
 
 
-/* 전역함수 */
+/******** 전역함수 ********/
+var appid = '02efdd64bdc14b279bc91d9247db4722';
+var dailyURL = 'https://api.openweathermap.org/data/2.5/weather';
+
+// https://api.openweathermap.org/data/2.5/weather?appid=02efdd64bdc14b279bc91d9247db4722&id=1835553&units=metric
+// https://api.openweathermap.org/data/2.5/forecast?appid=02efdd64bdc14b279bc91d9247db4722&id=1835553&units=metric
+
+
+
 function err(xhr) {
 	console.log(xhr);
 }
@@ -24,11 +32,8 @@ function cityMaker(res) {
 	for(var i in res.cities) {
 		html += '<option value="'+res.cities[i].id+'">'+res.cities[i].name+'</option>';
 	}
-	$("#city").html(html);
+	$("#city").append(html);
 }
-
-/* 프로그램 시작 */
-init();
 
 /* 도시정보 가져오기 */
 function init() {
@@ -38,3 +43,26 @@ function init() {
 		success: cityMaker
 	});
 }
+
+function getDaily() {
+
+}
+
+function getDays() {
+
+}
+
+
+/******** 이벤트 ********/
+
+/* 날씨 정보 가져오기 */
+$("#city").change(function(){
+	getDaily();
+	getDays();
+});
+
+
+
+
+/******** 프로그램 시작 ********/
+init();
