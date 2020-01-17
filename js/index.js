@@ -15,13 +15,13 @@ $.ajax({
 
 
 /******** 전역함수 ********/
-var appid = '02efdd64bdc14b279bc91d9247db4722';
-var dailyURL = 'https://api.openweathermap.org/data/2.5/weather';
 
 // https://api.openweathermap.org/data/2.5/weather?appid=02efdd64bdc14b279bc91d9247db4722&id=1835553&units=metric
 // https://api.openweathermap.org/data/2.5/forecast?appid=02efdd64bdc14b279bc91d9247db4722&id=1835553&units=metric
 
-
+var appid = '02efdd64bdc14b279bc91d9247db4722';
+var dailyURL = 'https://api.openweathermap.org/data/2.5/weather';
+var daysURL = 'https://api.openweathermap.org/data/2.5/forecast';
 
 function err(xhr) {
 	console.log(xhr);
@@ -44,12 +44,42 @@ function init() {
 	});
 }
 
-function getDaily() {
-
+function getDaily(id) {
+	$.ajax({
+		url: dailyURL,
+		data: {
+			appid: appid,
+			id: id,
+			units: "metric"	
+		},
+		success: resDaily,
+		error: resError
+	});
 }
 
-function getDays() {
+function getDays(id) {
+	$.ajax({
+		url: daysURL,
+		data: {
+			appid: appid,
+			id: id,
+			units: "metric"	
+		},
+		success: resDays,
+		error: resError
+	});
+}
 
+function resDaily(res) {
+	console.log(res);
+}
+
+function resDays(res) {
+	console.log(res);
+}
+
+function resError(err) {
+	console.log(err);
 }
 
 
@@ -57,8 +87,9 @@ function getDays() {
 
 /* 날씨 정보 가져오기 */
 $("#city").change(function(){
-	getDaily();
-	getDays();
+	var id = $(this).val();
+	getDaily(id);
+	getDays(id);
 });
 
 
