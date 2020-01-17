@@ -35,6 +35,34 @@ function cityMaker(res) {
 	$("#city").append(html);
 }
 
+/* 화면전환 */
+function stageChg(type) {
+	switch(type) {
+		case "H":
+			$(".header").css("display", "none");
+			$(".home-wrap").css("display", "flex");
+			$(".daily-wrap").css("display", "none");
+			$(".days-wrap").css("display", "none");
+			break;
+		case "D":
+			$(".navi").removeClass("active");
+			$(".navi").eq(1).addClass("active");
+			$(".header").css("display", "block");
+			$(".home-wrap").css("display", "none");
+			$(".daily-wrap").css("display", "flex");
+			$(".days-wrap").css("display", "none");
+			break;
+		case "S":
+			$(".navi").removeClass("active");
+			$(".navi").eq(2).addClass("active");
+			$(".header").css("display", "block");
+			$(".home-wrap").css("display", "none");
+			$(".daily-wrap").css("display", "none");
+			$(".days-wrap").css("display", "flex");
+			break;
+	}
+}
+
 /* 도시정보 가져오기 */
 function init() {
 	$.ajax({
@@ -42,6 +70,7 @@ function init() {
 		error: err,
 		success: cityMaker
 	});
+	stageChg('H');
 }
 
 function getDaily(id) {
@@ -72,6 +101,8 @@ function getDays(id) {
 
 function resDaily(res) {
 	console.log(res);
+	$(".d-city").html(res.name);
+	$(".d-time").html(Date(res.dt));
 }
 
 function resDays(res) {
@@ -86,6 +117,7 @@ $("#city").change(function(){
 	var id = $(this).val();
 	getDaily(id);
 	getDays(id);
+	stageChg('D');
 });
 
 
