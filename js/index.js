@@ -11,7 +11,27 @@ $.ajax({
 			console.log(xhr, status, error)
 		},
 	});
+
+var d = new Date();
+console.log(	d.getFullYear()	);	//년
+console.log(	d.getMonth()	);		//월 (0~11)
+console.log(	d.getDate()	);			//일
+console.log(	d.getHours()	);		//시
+console.log(	d.getMinutes()	);	//분
+console.log(	d.getSeconds()	);	//초
+console.log(	d.getDay()	);			//요일(0~6, 0:일요일)
+
+function iso(d) {
+	function zp(n) {
+		return n<10 ? "0"+n : n;
+	}
+	var dt = d.getFullYear()+"-"+zp(d.getMonth()+1)+"-"+zp(d.getDate())+" "+zp(d.getHours())+":"+zp(d.getMinutes())+":"+zp(d.getSeconds());
+	return dt;
+}
 */
+
+
+
 
 
 /******** 전역함수 ********/
@@ -22,6 +42,14 @@ $.ajax({
 var appid = '02efdd64bdc14b279bc91d9247db4722';
 var dailyURL = 'https://api.openweathermap.org/data/2.5/weather';
 var daysURL = 'https://api.openweathermap.org/data/2.5/forecast';
+
+function iso(d) {
+	function zp(n) {
+		return n<10 ? "0"+n : n;
+	}
+	var dt = d.getFullYear()+"-"+zp(d.getMonth()+1)+"-"+zp(d.getDate())+" "+zp(d.getHours())+":"+zp(d.getMinutes())+":"+zp(d.getSeconds());
+	return dt;
+}
 
 function err(xhr) {
 	console.log(xhr);
@@ -102,7 +130,7 @@ function getDays(id) {
 function resDaily(res) {
 	console.log(res);
 	$(".d-city").html(res.name);
-	$(".d-time").html(Date(res.dt));
+	$(".d-time").html(	iso(new Date(res.dt*1000))	);
 }
 
 function resDays(res) {
@@ -125,3 +153,4 @@ $("#city").change(function(){
 
 /******** 프로그램 시작 ********/
 init();
+
