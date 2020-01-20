@@ -81,7 +81,7 @@ function stageChg(type) {
 			$(".header").css("display", "block");
 			$(".home-wrap").css("display", "none");
 			$(".daily-wrap").css("display", "none");
-			$(".days-wrap").css("display", "flex");
+			$(".days-wrap").css("display", "block");
 			break;
 	}
 }
@@ -186,6 +186,24 @@ function resDaily(res) {
 
 function resDays(res) {
 	console.log(res);
+<li class="days-item">
+<div><img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" class="img a-img"></div>
+<div>
+<h3 class="a-time">2020-01-20 10:59:58</h3>
+<h3 class="a-summary">
+<span class="a-main">Haze</span> 
+<small class="a-desc">Haze</small>
+</h3>
+<h4 class="a-info">
+<span class="a-tit">Temp</span> 
+<span class="a-temp">0.75℃</span>
+<span class="a-tit">Feels</span> 
+<span class="a-feel">-2.75℃</span><br>
+<span class="a-tit">Humidity</span> 
+<span class="a-hum">25</span>
+</h4>
+</div>
+</li>
 }
 
 

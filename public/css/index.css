@@ -35,11 +35,20 @@ html, body {font-size: 16px; font-family: 'Noto Serif', serif;}
 .d-summary {padding-bottom: 1rem;}
 .d-tit {display: inline-block; width: 130px; padding-right: 1rem; border-right: 3px solid darkseagreen; margin-right: 1rem;}
 
+.days-wrap {display: none; padding: 1rem;}
+.days-wrap > .d-city {text-align: center;}
+.days-wrap > ul {}
+.days-item {display: flex; align-items: center; border: 1px solid #eee; padding: 0.5rem;}
+.days-item > :first-child {flex: 120px 0 0;}
+.days-item > :last-child {font-size: 1.125rem;}
+.a-time, .a-info {font-size: 1em;}
+.a-time {font-weight: bold;}
+.a-summary {font-size: 1.25em;}
+.a-temp {margin-right: 1em;}
 
-.days-wrap {display: none;}
 
 
 /* Responsive */
 @media screen and (max-width: 575px) {
-
+	.days-item > :last-child {font-size: 0.875rem;}
 }
