@@ -71,6 +71,7 @@ function stageChg(type) {
 			$(".home-wrap").css("display", "flex");
 			$(".daily-wrap").css("display", "none");
 			$(".days-wrap").css("display", "none");
+			$("#city").find("option").eq(0).attr("selected", "selected");
 			break;
 		case 1:
 			$(".navi").removeClass("active");
@@ -93,6 +94,7 @@ function stageChg(type) {
 
 /* 도시정보 가져오기 */
 function init() {
+	navigator.geolocation.getCurrentPosition(getPosition);
 	$.ajax({
 		url: "../json/city.json",
 		error: err,
@@ -101,27 +103,47 @@ function init() {
 	stageChg(0);
 }
 
-function getDaily(id) {
+function getPosition(pos) {
+	if(pos) {
+		var lat = pos.coords.latitude;
+		var lon = pos.coords.longitude;
+		getDaily(null, lat, lon);
+		getDays(null, lat, lon);
+		stageChg(1);
+	}
+}
+
+function getDaily(id, lat, lon) {
+	var data = {
+		appid: appid,
+		units: "metric"
+	};
+	if(id) data.id = id;
+	else {
+		data.lat = lat;
+		data.lon = lon;
+	}
 	$.ajax({
 		url: dailyURL,
-		data: {
-			appid: appid,
-			id: id,
-			units: "metric"	
-		},
+		data: data,
 		success: resDaily,
 		error: err
 	});
 }
 
-function getDays(id) {
+function getDays(id, lat, lon) {
+	var data = {
+		appid: appid,
+		units: "metric"
+	};
+	if(id) data.id = id;
+	else {
+		data.lat = lat;
+		data.lon = lon;
+	}
 	$.ajax({
 		url: daysURL,
-		data: {
-			appid: appid,
-			id: id,
-			units: "metric"	
-		},
+		data: data,
 		success: resDays,
 		error: err
 	});
@@ -160,6 +182,9 @@ $(".navi").click(function(){
 	stageChg(n);
 });
 
+$("#bt-geo").click(function(){
+	navigator.geolocation.getCurrentPosition(getPosition);
+});
 
 
 

@@ -28,7 +28,7 @@ html, body {font-size: 16px; font-family: 'Noto Serif', serif;}
 }
 .home-wrap > h1 > :first-child {font-size: 3.5rem; padding-right: 5rem; font-weight: bold; color: #333; line-height: 2.5rem;}
 .home-wrap > h1 > :last-child {font-size: 3rem; padding: 0rem 0 1rem 8rem; border-top: 1px solid #333; color: #555;}
-#city {font-family: 'Noto Sans KR', sans-serif; margin: 3rem auto 8rem auto; font-size: 1.25rem;}
+#city {font-family: 'Noto Sans KR', sans-serif; margin: 3rem auto 1rem auto; font-size: 1.25rem;}
 
 .daily-wrap {display: none; flex-direction: column; justify-content: center; align-items: center;}
 .d-icon {width: 160px; padding: 2rem 0;}
