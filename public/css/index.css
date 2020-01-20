@@ -37,8 +37,8 @@ html, body {font-size: 16px; font-family: 'Noto Serif', serif;}
 
 .days-wrap {display: none; padding: 1rem;}
 .days-wrap > .d-city {text-align: center;}
-.days-wrap > ul {}
-.days-item {display: flex; align-items: center; border: 1px solid #eee; padding: 0.5rem;}
+.days-wrap > ul {overflow-y: scroll; height: calc(100vh - 160px);}
+.days-item {display: flex; align-items: center; border: 1px solid #eee; padding: 0.5rem; margin: 0.5rem;}
 .days-item > :first-child {flex: 120px 0 0;}
 .days-item > :last-child {font-size: 1.125rem;}
 .a-time, .a-info {font-size: 1em;}
