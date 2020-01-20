@@ -55,14 +55,7 @@ function err(xhr) {
 	console.log(xhr);
 }
 
-function cityMaker(res) {
-	var html = '';
-	for(var i in res.cities) {
-		html += '<option value="'+res.cities[i].id+'">'+res.cities[i].name+'</option>';
-	}
-	$("#city").append(html);
-}
-
+/*********** View ***********/
 /* 화면전환 */
 function stageChg(type) {
 	switch(type) {
@@ -71,7 +64,8 @@ function stageChg(type) {
 			$(".home-wrap").css("display", "flex");
 			$(".daily-wrap").css("display", "none");
 			$(".days-wrap").css("display", "none");
-			$("#city").find("option").eq(0).attr("selected", "selected");
+			// $("#city").find("option").eq(0).attr("selected", "selected");
+			$("#city").find("option").eq(0).prop("selected", true);
 			break;
 		case 1:
 			$(".navi").removeClass("active");
@@ -92,6 +86,8 @@ function stageChg(type) {
 	}
 }
 
+
+/*********** Controller ***********/
 /* 도시정보 가져오기 */
 function init() {
 	navigator.geolocation.getCurrentPosition(getPosition);
@@ -101,6 +97,14 @@ function init() {
 		success: cityMaker
 	});
 	stageChg(0);
+}
+
+function cityMaker(res) {
+	var html = '';
+	for(var i in res.cities) {
+		html += '<option value="'+res.cities[i].id+'">'+res.cities[i].name+'</option>';
+	}
+	$("#city").append(html);
 }
 
 function getPosition(pos) {
@@ -113,6 +117,24 @@ function getPosition(pos) {
 	}
 }
 
+/* 날씨 정보 가져오기 */
+$("#city").change(function(){
+	var id = $(this).val();
+	getDaily(id);
+	getDays(id);
+	stageChg(1);
+});
+
+$(".navi").click(function(){
+	var n = $(this).index();
+	stageChg(n);
+});
+
+$("#bt-geo").click(function(){
+	navigator.geolocation.getCurrentPosition(getPosition);
+});
+
+/*********** Model(Data) ***********/
 function getDaily(id, lat, lon) {
 	var data = {
 		appid: appid,
@@ -167,24 +189,6 @@ function resDays(res) {
 }
 
 
-/******** 이벤트 ********/
-
-/* 날씨 정보 가져오기 */
-$("#city").change(function(){
-	var id = $(this).val();
-	getDaily(id);
-	getDays(id);
-	stageChg(1);
-});
-
-$(".navi").click(function(){
-	var n = $(this).index();
-	stageChg(n);
-});
-
-$("#bt-geo").click(function(){
-	navigator.geolocation.getCurrentPosition(getPosition);
-});
 
 
 

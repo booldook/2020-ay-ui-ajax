@@ -1,0 +1,29 @@
+[debug] [2020-01-20T00:41:14.470Z] ----------------------------------------------------------------------
+[debug] [2020-01-20T00:41:14.472Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Hi-anyang\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-01-20T00:41:14.473Z] CLI Version:   7.10.0
+[debug] [2020-01-20T00:41:14.473Z] Platform:      win32
+[debug] [2020-01-20T00:41:14.473Z] Node Version:  v12.14.0
+[debug] [2020-01-20T00:41:14.474Z] Time:          Mon Jan 20 2020 09:41:14 GMT+0900 (GMT+09:00)
+[debug] [2020-01-20T00:41:14.474Z] ----------------------------------------------------------------------
+[debug] [2020-01-20T00:41:14.474Z] 
+[debug] [2020-01-20T00:41:14.495Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-01-20T00:41:14.496Z] > authorizing via signed-in user
+[debug] [2020-01-20T00:41:14.496Z] [iam] checking project ay-weather for permissions ["firebase.projects.get"]
+[debug] [2020-01-20T00:41:14.498Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-01-20T00:41:14.498Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-01-20T00:41:14.752Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-20T00:41:14.773Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/ay-weather:testIamPermissions  
+
+[debug] [2020-01-20T00:41:15.937Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-20T00:41:15.939Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/ay-weather  
+ 
+[debug] [2020-01-20T00:41:16.744Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\임덕규강사\19.js-ajax'...
+[info] 
+[debug] [2020-01-20T00:41:16.751Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/ay-weather/webApps/-/config  
+ 
+[debug] [2020-01-20T00:41:17.945Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
