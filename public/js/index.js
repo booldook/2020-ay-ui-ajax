@@ -92,7 +92,7 @@ function stageChg(type) {
 function init() {
 	navigator.geolocation.getCurrentPosition(getPosition);
 	$.ajax({
-		url: "../json/city.json",
+		url: "./json/city.json",
 		error: err,
 		success: cityMaker
 	});
